@@ -1,6 +1,9 @@
 var pastaItemListTemplate = null;
 
 $(function(){
+    $('.ui.dropdown').dropdown()
+    $('.ui.checkbox').checkbox()
+
     $.when(
         $.get("/pasta-item-list.hbs"),
         $.get("/api/get-cap-pasta")

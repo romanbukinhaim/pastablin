@@ -1,17 +1,29 @@
-<form action="postPasta" method="POST">
-    <label>Название</label>
-    <input name="title" /><br><br>
-    <textarea name="text" cols="30" rows="10"></textarea><br><br>
-    <label>Публичное</label>
-    <input type="checkbox" name="isPublic" checked><br><br>
-    <select name="duration">
-        <option value="10">10 мин</option>
-        <option value="60">1 час</option>
-        <option value="180">3 часа</option>
-        <option value="1440">1 сутки</option>
-        <option value="10080">1 неделя</option>
-        <option value="40320">1 месяц</option>
-        <option value="0">без ограничений</option>
-    </select>
-    <input type="submit" value="Отправить" />
+<form action="postPasta" method="POST" class="ui form">
+    <div class="field">
+        <label>Название</label>
+        <input name="title" type="text" placeholder="Моя маленькая паста">
+    </div>
+    <div class="field">
+        <label>Текст</label>
+        <textarea name="text" cols="30" rows="10" placeholder="Равным образом укрепление и развитие структуры способствует подготовки и реализации систем массового участия. С другой стороны сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития."></textarea>
+    </div>
+    <div class="field">
+        <div class="ui checkbox">
+            <input type="checkbox" name="isPublic" checked>
+            <label>Публичное</label>
+        </div>
+    </div>
+    <div class="field">
+        <label>Действует до</label>
+        <select name="duration" class="ui fluid dropdown">
+            <option value="10">10 мин</option>
+            <option value="60">1 час</option>
+            <option value="180">3 часа</option>
+            <option value="1440">1 сутки</option>
+            <option value="10080">1 неделя</option>
+            <option value="40320">1 месяц</option>
+            <option value="-1">без ограничений</option>
+        </select>
+    </div>
+    <button class="ui button" type="submit">Отправить</button>
 </form>

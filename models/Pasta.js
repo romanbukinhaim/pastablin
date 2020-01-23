@@ -6,8 +6,8 @@ const pastaScheme = new Schema({
     title: String,
     text: String,
     isPublic: Boolean,
-    duration: Number,
-    timestamp: Date
+    timestamp: Date,
+    validUntil: Date
 });
 const Model = mongoose.model("Pasta", pastaScheme);
 
@@ -32,6 +32,10 @@ Model.prototype.toDTO = function(){
     copy.link = this.encryptLink();
     delete copy._id;
     return copy;
+}
+
+Model.prototype.isRelevant = function(){
+    return true;
 }
 
 module.exports = Model;
