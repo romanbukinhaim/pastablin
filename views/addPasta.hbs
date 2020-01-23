@@ -1,20 +1,20 @@
-<form action="postPasta" method="POST" class="ui form">
+<form id="postPasta" action="postPasta" method="POST" class="ui form">
     <div class="field">
         <label>Название</label>
         <input name="title" type="text" placeholder="Моя маленькая паста">
     </div>
     <div class="field">
         <label>Текст</label>
-        <textarea name="text" cols="30" rows="10" placeholder="Равным образом укрепление и развитие структуры способствует подготовки и реализации систем массового участия. С другой стороны сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития."></textarea>
+        <textarea name="text" maxlength="1024" cols="30" rows="10" placeholder="Равным образом укрепление и развитие структуры способствует подготовки и реализации систем массового участия. С другой стороны сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития."></textarea>
     </div>
     <div class="field">
         <div class="ui checkbox">
             <input type="checkbox" name="isPublic" checked>
-            <label>Публичное</label>
+            <label>Видна всем</label>
         </div>
     </div>
     <div class="field">
-        <label>Действует до</label>
+        <label>Срок действия</label>
         <select name="duration" class="ui fluid dropdown">
             <option value="10">10 мин</option>
             <option value="60">1 час</option>
@@ -25,5 +25,8 @@
             <option value="-1">без ограничений</option>
         </select>
     </div>
-    <button class="ui button" type="submit">Отправить</button>
+    <div style="display: flex; justify-content: flex-end;">
+        <button class="ui button primary" type="submit">Отправить</button>
+    </div>
+    <div class="ui error message"></div>
 </form>

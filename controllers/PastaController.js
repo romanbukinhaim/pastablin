@@ -7,8 +7,8 @@ exports.addPasta = function(request, response){
 
 exports.getPasta = function(request, response){
     let link = request.params["link"]
-    Pasta.findOne({_id: Pasta.decryptLink(link)}, (err, res) => {
-        if (err || !res.isRelevant()) response.status(404).send("Not Found")
+    Pasta.findOne({_id: Pasta.decryptLink(link), validUntil: {$gt: new Date()}}, (err, res) => {
+        if (err || !res) response.status(404).send("Not Found")
         else response.render("pasta", res);
     })
 }
@@ -28,7 +28,7 @@ exports.postPasta = function(request, response){
     });
 
     pasta.save((err) => {
-        if(err) return console.log(err);
-        response.redirect(`/pasta/${pasta.encryptLink()}`);
+        if(err) response.status(400).send(err.message);
+        else response.redirect(`/pasta/${pasta.encryptLink()}`);
     });
 };

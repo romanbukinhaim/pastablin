@@ -3,12 +3,24 @@ const crypto = require('crypto');
 const Schema = mongoose.Schema;
 
 const pastaScheme = new Schema({
-    title: String,
-    text: String,
-    isPublic: Boolean,
+    title: {
+        type: String,
+        required: true,
+        maxlength: 256
+    },
+    text:{
+        type: String,
+        required: true,
+        maxlength: 1024
+    },
+    isPublic: {
+        type: Boolean,
+        required: true,
+        default: true
+    },
     timestamp: Date,
     validUntil: Date
-});
+}, {versionKey: false});
 const Model = mongoose.model("Pasta", pastaScheme);
 
 const secret_key ="foo";
@@ -32,10 +44,6 @@ Model.prototype.toDTO = function(){
     copy.link = this.encryptLink();
     delete copy._id;
     return copy;
-}
-
-Model.prototype.isRelevant = function(){
-    return true;
 }
 
 module.exports = Model;

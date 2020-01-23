@@ -1,2 +1,10 @@
-{{title}}
-{{text}}
+<div class="ui container">
+    <div class="ui medium header">{{title}}</div>
+    <textarea cols="30" rows="10" readonly style="width: 100%; resize: none">{{text}}</textarea>
+    <br>
+    {{#if validUntil}}
+    <div>Действует до: {{dateFormatUTC validUntil}}</div>
+    {{else}}
+    <div>Срок действия пасты <b>неограничен</b></div>
+    {{/if}}
+</div>

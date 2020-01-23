@@ -15,8 +15,15 @@
 </head>
 <body>
     {{> menu}}
-    <section>{{{body}}}</section>
-    <section id="pastaCap_block"></section>
+    <main>
+        {{{body}}}
+
+        <h4 class="ui horizontal divider header">
+            <i class="bookmark icon"></i>
+            Недавние пасты
+        </h4>
+        <div id="pastaCap_block" class="ui list"></div>
+    </main>
     {{> footer}}
 </body>
 </html>

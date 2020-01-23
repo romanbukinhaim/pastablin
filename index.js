@@ -3,6 +3,7 @@ const expressHbs = require('express-handlebars');
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
@@ -24,7 +25,12 @@ app.engine('hbs', expressHbs({
         layoutsDir: 'views/layouts',
         defaultLayout: 'layout',
         extname: 'hbs',
-        partialsDir: "views/partials"
+        partialsDir: "views/partials",
+        helpers: {
+            dateFormatUTC: function(date){
+                return moment(date).utcOffset(420).format('DD.MM.YYYY HH:mm');
+            }
+        }
     })
 );
 app.set('view engine', 'hbs');

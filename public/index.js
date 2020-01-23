@@ -4,6 +4,37 @@ $(function(){
     $('.ui.dropdown').dropdown()
     $('.ui.checkbox').checkbox()
 
+    $('form#postPasta').form({
+        fields: {
+            title: {
+                identifier: 'title',
+                rules: [
+                    {
+                        type   : 'empty',
+                        prompt : 'Введите наименование пасты'
+                    },
+                    {
+                        type   : 'maxLength[256]',
+                        prompt : 'Наименование пасты слишком длинное! Максисмальное кол-во символов 256'
+                    }
+                ]
+            },
+            text: {
+                identifier: 'text',
+                rules: [
+                    {
+                        type   : 'empty',
+                        prompt : 'Введите текст пасты'
+                    },
+                    {
+                        type   : 'maxLength[1024]',
+                        prompt : 'Паста слишком длинная! Максисмальное кол-во символов 1024'
+                    }
+                ]
+            }
+        }
+    });
+
     $.when(
         $.get("/pasta-item-list.hbs"),
         $.get("/api/get-cap-pasta")
