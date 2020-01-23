@@ -1,0 +1,12 @@
+<div class="ui small header grey">Результаты поиска по: {{words}}</div>
+{{#if search_result}}
+<div class="ui list">
+    {{#each search_result}}
+        {{> pasta-item-list this}}
+    {{/each}}
+</div>
+{{else}}
+<div class="ui label big">
+    ничего не найдено <i class="frown outline icon"></i>
+</div>
+{{/if}}

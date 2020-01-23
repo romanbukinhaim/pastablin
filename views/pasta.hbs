@@ -1,10 +1,22 @@
 <div class="ui container">
-    <div class="ui medium header">{{title}}</div>
-    <textarea cols="30" rows="10" readonly style="width: 100%; resize: none">{{text}}</textarea>
+    <div style="display: flex; justify-content: flex-start;align-items: baseline; padding-bottom: 10px;">
+        <button class="ui circular icon button " onclick="copy2clipboard('nav_string')" data-tooltip="скопировать ссылку на пасту">
+            <i class="linkify icon"></i>
+        </button>
+        <div class="ui medium header" style="margin: 0;">{{title}}</div>
+    </div>
+    <pre class="prettyprint">{{text}}</pre>
+    {{!-- <textarea id="text-pasta" cols="30" rows="10" readonly style="width: 100%; resize: vertical">{{text}}</textarea> --}}
     <br>
-    {{#if validUntil}}
-    <div>Действует до: {{dateFormatUTC validUntil}}</div>
-    {{else}}
-    <div>Срок действия пасты <b>неограничен</b></div>
-    {{/if}}
+    <div style="display: flex; justify-content: space-between">
+        {{#if validUntil}}
+        <div>Действует до: {{dateFormatUTC validUntil}}</div>
+        {{else}}
+        <div>Срок действия пасты <b>неограничен</b></div>
+        {{/if}}
+        <button class="ui labeled icon button green" onclick="copy2clipboard('pasta_text')">
+            <i class="copy icon"></i>
+            скопировать содержимое
+        </button>
+    </div>
 </div>

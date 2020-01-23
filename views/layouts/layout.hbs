@@ -8,22 +8,26 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
     <script src="/semantic/semantic.min.js"></script>
 
     <script src="/index.js"></script>
 </head>
 <body>
-    {{> menu}}
-    <main>
-        {{{body}}}
+    <div class="content-wrapper">
+        {{> menu}}
+        <main>
+            {{{body}}}
 
-        <h4 class="ui horizontal divider header">
-            <i class="bookmark icon"></i>
-            Недавние пасты
-        </h4>
-        <div id="pastaCap_block" class="ui list"></div>
-    </main>
+            <h4 class="ui horizontal divider header">
+                <i class="bookmark icon"></i>
+                Недавние пасты
+            </h4>
+            <div id="pastaCap_block" class="ui list"></div>
+        </main>
+    </div>
     {{> footer}}
 </body>
 </html>

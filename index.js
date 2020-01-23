@@ -25,7 +25,7 @@ app.engine('hbs', expressHbs({
         layoutsDir: 'views/layouts',
         defaultLayout: 'layout',
         extname: 'hbs',
-        partialsDir: "views/partials",
+        partialsDir: ["views/partials", "public"],
         helpers: {
             dateFormatUTC: function(date){
                 return moment(date).utcOffset(420).format('DD.MM.YYYY HH:mm');

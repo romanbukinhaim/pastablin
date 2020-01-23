@@ -1,3 +1,12 @@
-<nav class="ui huge dividing header">
-    <a href="/"><i class="copy outline icon"></i>PastaBlin</a>
-</nav>
+<div class="ui dividing" style="display: flex; justify-content:space-between; align-items: center; padding: 20px 12%; 0 12%">
+    <div class="ui huge header"><a href="/"><i class="copy outline icon"></i>PastaBlin</a></div>
+    <form action="/pasta/search">
+        <div class="ui search">
+            <div class="ui icon input">
+                <input name="words" class="prompt" type="text" placeholder="найти пасту...">
+                <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
+    </form>
+</div>

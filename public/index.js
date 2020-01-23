@@ -49,3 +49,13 @@ $(function(){
         $("#pastaCap_block").append(pastaListTmpl(pastaCap[0]));
     })
 })
+
+
+function copy2clipboard(place){
+    var $temp = $("<input>");
+    $("body").append($temp);
+    if (place == "nav_string") $temp.val(document.location.href).select();
+    else if (place == "pasta_text") $temp.val($("pre.prettyprint")[0].innerText).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
