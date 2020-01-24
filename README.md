@@ -1,4 +1,3 @@
-# PastaBlin
 ![main_screen](./public/images/main_screen.PNG)
 Наивный аналог сервиса [pastebin](https://pastebin.com/). Выполнен в качестве тестового задания. 
 - Паттерн MVC на фреймворке [Express](https://www.npmjs.com/package/express)
